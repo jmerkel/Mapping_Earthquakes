@@ -24,7 +24,7 @@ let baseMaps = {
 // Create the map object with center, zoom level and default layer.
 let map = L.map('mapid', {
   center: [44.0, -80.0],
-  zoom: 2,
+  zoom: 6,
 	layers: [light]
 })
 
@@ -37,11 +37,11 @@ light.addTo(map);
 // Accessing the airport GeoJSON URL
 let airportData = "https://raw.githubusercontent.com/jmerkel/Mapping_Earthquakes/Mapping_GeoJSON_Points/majorAirports.json";
 // Accessing the Toronto airline routes GeoJSON URL.
-let torontoData = "https://raw.githubusercontent.com/jmerkel/Mapping_Earthquakes/Mapping_GeoJSON_Points/torontoRoutes.json";
+let torontoData = "https://raw.githubusercontent.com/jmerkel/Mapping_Earthquakes/Mapping_GeoJSON_Linestrings/torontoRoutes.json";
 
 // Grabbing our GeoJSON data.
 d3.json(torontoData).then(function(data) {
   console.log(data);
-// Creating a GeoJSON layer with the retrieved data.
-L.geoJson(data).addTo(map);
+  // Creating a GeoJSON layer with the retrieved data.
+  L.geoJson(data).addTo(map);
 });
